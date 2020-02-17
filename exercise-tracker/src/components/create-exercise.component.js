@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateExercise extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangerUserName = this.onChangeUserName.bind(this);
-        this.onChangerDescription = this.onChangeDescription.bind(this);
-        this.onChangerDuration = this.onChangeDuration.bind(this);
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeDuration = this.onChangeDuration.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             username: '',
@@ -25,32 +28,33 @@ export default class CreateExercise extends Component {
         })
     }
 
-    onChangerUserName(e){
+    onChangeUsername(e) {
         this.setState({
-            username: e.target.value
-        });
-    }
-
-    onChangerDescription(e){
+          username: e.target.value
+        })
+      }
+    
+      onChangeDescription(e) {
         this.setState({
-            description: e.target.value
-        });
-    }
-
-    onChangerDuration(e){
+          description: e.target.value
+        })
+      }
+    
+      onChangeDuration(e) {
         this.setState({
-            duration: e.target.value
-        });
-    }
-
-    onChangeDate(date){
+          duration: e.target.value
+        })
+      }
+    
+      onChangeDate(date) {
         this.setState({
-            date: date
-        });
-    }
-
-    onSubmit(e){
+          date: date
+        })
+      }
+    
+      onSubmit(e) {
         e.preventDefault();
+    
 
         const exercise = {
             username: this.state.username,
@@ -62,7 +66,7 @@ export default class CreateExercise extends Component {
         console.log(exercise);
 
         window.location = '/'
-    }
+        }
     render(){
         return (
             <div>
